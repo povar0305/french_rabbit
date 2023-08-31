@@ -5,10 +5,32 @@
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
           <div class="switch">
-            <input type="checkbox" name="toggle" class="sw" id="toggle-1" />
-            <label for="toggle-1"></label>
-            <p>Кухня под ключ</p>
+            <input
+              type="checkbox"
+              name="toggle"
+              class="switch__input"
+              id="toggle-1"
+            />
+            <label for="toggle-1">
+              <span>Кухня под ключ</span>
+            </label>
           </div>
+          <a href="#" class="kitchen__link">
+            Подробнее
+            <svg
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.04482 0L0 1.05426L3.91037 5L0 8.94573L1.04482 10L6 5L1.04482 0Z"
+                fill="#E84E0E"
+              /></svg
+          ></a>
         </div>
       </div>
       <div class="line"></div>
@@ -41,6 +63,22 @@ export default {
   &__inner {
     padding-top: 24px;
     padding-bottom: 24px;
+    &--row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__link {
+    font-size: 12px;
+    letter-spacing: 1.2;
+    color: #e84e0e;
+    text-transform: uppercase;
+    text-decoration: none;
+    align-self: center;
+    & svg {
+      margin-left: 8px;
+    }
   }
 }
 .line {
@@ -52,7 +90,7 @@ export default {
   display: flex;
   align-items: center;
   & input {
-    &.sw {
+    &.switch__input {
       opacity: 0;
       position: absolute;
       left: -9999px;
@@ -106,11 +144,6 @@ export default {
         }
       }
     }
-  }
-  & p {
-    line-height: 20.8px;
-    margin-bottom: 0;
-    margin-top: 0;
   }
 }
 </style>
