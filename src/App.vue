@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="kitchen">
-      <div class="line"></div>
+    <vLine></vLine>
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
           <vSwitch></vSwitch>
@@ -50,16 +50,19 @@
           </div>
         </div>
       </div>
-      <div class="line"></div>
+    <vLine></vLine>
+
     </div>
+
   </div>
 </template>
 
 <script>
+import vLine from "./components/v-line.vue";
 import vSwitch from "./components/v-switch.vue";
 export default {
   name: "App",
-  components: { vSwitch },
+  components: { vSwitch, vLine },
 };
 </script>
 
@@ -135,10 +138,5 @@ export default {
       margin-left: 8px;
     }
   }
-}
-.line {
-  width: 100%;
-  height: 1px;
-  background-color: #e7e7e7;
 }
 </style>
