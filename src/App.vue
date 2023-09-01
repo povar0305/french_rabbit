@@ -26,49 +26,11 @@
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
             <p>Тип кухни</p>
-            <div class="kitchen__inner--chips types">
-              <div class="kitchen__inner--chip">
-                <label
-                  ><input
-                    type="radio"
-                    value="standart"
-                    checked
-                    name="selectedTypeKitchen"
-                  />
-                  Cтандарт
-                </label>
-              </div>
-              <div class="kitchen__inner--chip">
-                <label>
-                  <input type="radio" value="plus" name="selectedTypeKitchen" />
-                  Плюс
-                </label>
-              </div>
-            </div>
+            <VChip></VChip>
           </div>
           <div class="kitchen__inner--col-1">
             <p>Тип кухни</p>
-            <div class="kitchen__inner--chips colors">
-              <div class="kitchen__inner--chip">
-                <label
-                  ><input
-                    type="radio"
-                    value="#D3C285"
-                    checked
-                    name="selectedColorKitchen"
-                  />&nbsp
-                </label>
-              </div>
-              <div class="kitchen__inner--chip">
-                <label
-                  ><input
-                    type="radio"
-                    value="#CBB697"
-                    name="selectedColorKitchen"
-                  />&nbsp
-                </label>
-              </div>
-            </div>
+            <VChip></VChip>
           </div>
         </div>
       </div>
@@ -78,11 +40,13 @@
 </template>
 
 <script>
+import VChip from './components/v-chip'
 import vLine from "./components/v-line.vue";
 import vSwitch from "./components/v-switch.vue";
 export default {
   name: "App",
-  components: { vSwitch, vLine },
+  components: {
+    VChip, vSwitch, vLine },
 };
 </script>
 
@@ -121,50 +85,7 @@ export default {
         margin: 0;
       }
     }
-    &--chips {
-      display: flex;
-      & input {
-        opacity: 0;
-        position: absolute;
-        left: -9999px;
-      }
-      & label:has(input:checked) {
-        border: 1px solid #e84e0e;
-        background-color: transparent;
-      }
-      &.types label {
-        width: auto;
-        border-radius: 32px;
-        padding: 8px 24px;
-        margin-right: 8px;
-        background-color: #f2f2f2;
-        text-transform: uppercase;
-        font-size: 12px;
-        cursor: pointer;
-        transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
-        border: 1px solid transparent;
-        letter-spacing: 1.2;
-      }
-
-      &.colors label {
-        position: relative;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        cursor: pointer;
-        &::after {
-          position: absolute;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          content: "";
-          background-color: #d3c285 !important;
-        }
-      }
-    }
+    
   }
   &__link {
     font-size: 12px;
