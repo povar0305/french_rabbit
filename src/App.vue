@@ -36,15 +36,13 @@
                     name="selectedTypeKitchen"
                   />
                   Cтандарт
-                  </label
-                >
+                </label>
               </div>
               <div class="kitchen__inner--chip">
                 <label>
                   <input type="radio" value="plus" name="selectedTypeKitchen" />
                   Плюс
-                  </label
-                >
+                </label>
               </div>
             </div>
           </div>
@@ -52,24 +50,23 @@
             <p>Тип кухни</p>
             <div class="kitchen__inner--chips colors">
               <div class="kitchen__inner--chip">
-                <input
-                  type="radio"
-                  value="#D3C285"
-                  checked
-                  id="#D3C285"
-                  name="selectedColorKitchen"
-                />
-                <label for="#D3C285">&nbsp </label>
+                <label
+                  ><input
+                    type="radio"
+                    value="#D3C285"
+                    checked
+                    name="selectedColorKitchen"
+                  />&nbsp
+                </label>
               </div>
               <div class="kitchen__inner--chip">
-                <input
-                  type="radio"
-                  value="#CBB697"
-                  checked
-                  id="#CBB697"
-                  name="selectedColorKitchen"
-                />
-                <label for="#CBB697">&nbsp </label>
+                <label
+                  ><input
+                    type="radio"
+                    value="#CBB697"
+                    name="selectedColorKitchen"
+                  />&nbsp
+                </label>
               </div>
             </div>
           </div>
@@ -130,10 +127,10 @@ export default {
         opacity: 0;
         position: absolute;
         left: -9999px;
-        &:checked + label {
-          border: 1px solid #e84e0e;
-          background-color: transparent;
-        }
+      }
+      & label:has(input:checked) {
+        border: 1px solid #e84e0e;
+        background-color: transparent;
       }
       &.types label {
         width: auto;
@@ -148,7 +145,7 @@ export default {
         border: 1px solid transparent;
         letter-spacing: 1.2;
       }
-      
+
       &.colors label {
         position: relative;
         width: 32px;
