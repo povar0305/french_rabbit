@@ -29,7 +29,7 @@
             <VChip></VChip>
           </div>
           <div class="kitchen__inner--col-1">
-            <p>Тип кухни</p>
+            <p>Цвет отделки</p>
             <VChip></VChip>
           </div>
         </div>
