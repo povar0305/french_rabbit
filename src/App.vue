@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="kitchen">
-    <vLine></vLine>
+      <vLine></vLine>
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
           <vSwitch></vSwitch>
@@ -26,34 +26,57 @@
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
             <p>Тип кухни</p>
-            <div class="kitchen__inner--chips">
+            <div class="kitchen__inner--chips types">
+              <div class="kitchen__inner--chip">
+                <label
+                  ><input
+                    type="radio"
+                    value="standart"
+                    checked
+                    name="selectedTypeKitchen"
+                  />
+                  Cтандарт
+                  </label
+                >
+              </div>
+              <div class="kitchen__inner--chip">
+                <label>
+                  <input type="radio" value="plus" name="selectedTypeKitchen" />
+                  Плюс
+                  </label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="kitchen__inner--col-1">
+            <p>Тип кухни</p>
+            <div class="kitchen__inner--chips colors">
               <div class="kitchen__inner--chip">
                 <input
                   type="radio"
-                  value="huey"
+                  value="#D3C285"
                   checked
-                  id="standart"
-                  name="selectedTypeKitchen"
+                  id="#D3C285"
+                  name="selectedColorKitchen"
                 />
-                <label for="standart">Cтандарт</label>
+                <label for="#D3C285">&nbsp </label>
               </div>
               <div class="kitchen__inner--chip">
                 <input
                   type="radio"
-                  value="huey"
-                  name="selectedTypeKitchen"
-                  id="plus"
+                  value="#CBB697"
+                  checked
+                  id="#CBB697"
+                  name="selectedColorKitchen"
                 />
-                <label for="plus">Плюс</label>
+                <label for="#CBB697">&nbsp </label>
               </div>
             </div>
           </div>
         </div>
       </div>
-    <vLine></vLine>
-
+      <vLine></vLine>
     </div>
-
   </div>
 </template>
 
@@ -103,27 +126,46 @@ export default {
     }
     &--chips {
       display: flex;
-    }
-    &--chip label {
-      width: auto;
-      border-radius: 32px;
-      padding: 8px 24px;
-      margin-right: 8px;
-      background-color: #f2f2f2;
-      text-transform: uppercase;
-      font-size: 12px;
-      cursor: pointer;
-      transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
-      border: 1px solid transparent;
-      letter-spacing: 1.2;
-    }
-    & input {
-      opacity: 0;
-      position: absolute;
-      left: -9999px;
-      &:checked + label {
-        border: 1px solid #e84e0e;
-        background-color: #fff;
+      & input {
+        opacity: 0;
+        position: absolute;
+        left: -9999px;
+        &:checked + label {
+          border: 1px solid #e84e0e;
+          background-color: transparent;
+        }
+      }
+      &.types label {
+        width: auto;
+        border-radius: 32px;
+        padding: 8px 24px;
+        margin-right: 8px;
+        background-color: #f2f2f2;
+        text-transform: uppercase;
+        font-size: 12px;
+        cursor: pointer;
+        transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+        border: 1px solid transparent;
+        letter-spacing: 1.2;
+      }
+      
+      &.colors label {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        &::after {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          content: "";
+          background-color: #d3c285 !important;
+        }
       }
     }
   }

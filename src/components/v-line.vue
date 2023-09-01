@@ -6,7 +6,7 @@ export default {
   name: "v-line",
 };
 </script>
-<style>
+<style scouped>
 .line {
   width: 100%;
   height: 1px;

@@ -17,7 +17,7 @@ export default {
   components: {},
 };
 </script>
-<style lang="scss">
+<style lang="scss" scouped>
 .switch {
   display: flex;
   align-items: center;
