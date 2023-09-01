@@ -4,17 +4,7 @@
       <div class="line"></div>
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
-          <div class="switch">
-            <input
-              type="checkbox"
-              name="toggle"
-              class="switch__input"
-              id="toggle-1"
-            />
-            <label for="toggle-1">
-              <span>Кухня под ключ</span>
-            </label>
-          </div>
+          <vSwitch></vSwitch>
           <a href="#" class="kitchen__link">
             Подробнее
             <svg
@@ -29,8 +19,35 @@
                 clip-rule="evenodd"
                 d="M1.04482 0L0 1.05426L3.91037 5L0 8.94573L1.04482 10L6 5L1.04482 0Z"
                 fill="#E84E0E"
-              /></svg
-          ></a>
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="kitchen__inner--row">
+          <div class="kitchen__inner--col-1">
+            <p>Тип кухни</p>
+            <div class="kitchen__inner--chips">
+              <div class="kitchen__inner--chip">
+                <input
+                  type="radio"
+                  value="huey"
+                  checked
+                  id="standart"
+                  name="selectedTypeKitchen"
+                />
+                <label for="standart">Cтандарт</label>
+              </div>
+              <div class="kitchen__inner--chip">
+                <input
+                  type="radio"
+                  value="huey"
+                  name="selectedTypeKitchen"
+                  id="plus"
+                />
+                <label for="plus">Плюс</label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="line"></div>
@@ -39,9 +56,10 @@
 </template>
 
 <script>
+import vSwitch from "./components/v-switch.vue";
 export default {
   name: "App",
-  components: {},
+  components: { vSwitch },
 };
 </script>
 
@@ -62,11 +80,48 @@ export default {
 
   &__inner {
     padding-top: 24px;
-    padding-bottom: 24px;
     &--row {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding-bottom: 24px;
+    }
+    &--col-1 {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      & p {
+        color: #959596;
+        font-size: 16px;
+        line-height: 20px;
+        padding-bottom: 8px;
+        margin: 0;
+      }
+    }
+    &--chips {
+      display: flex;
+    }
+    &--chip label {
+      width: auto;
+      border-radius: 32px;
+      padding: 8px 24px;
+      margin-right: 8px;
+      background-color: #f2f2f2;
+      text-transform: uppercase;
+      font-size: 12px;
+      cursor: pointer;
+      transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+      border: 1px solid transparent;
+      letter-spacing: 1.2;
+    }
+    & input {
+      opacity: 0;
+      position: absolute;
+      left: -9999px;
+      &:checked + label {
+        border: 1px solid #e84e0e;
+        background-color: #fff;
+      }
     }
   }
   &__link {
@@ -85,65 +140,5 @@ export default {
   width: 100%;
   height: 1px;
   background-color: #e7e7e7;
-}
-.switch {
-  display: flex;
-  align-items: center;
-  & input {
-    &.switch__input {
-      opacity: 0;
-      position: absolute;
-      left: -9999px;
-      & + label {
-        user-select: none;
-        height: 24px;
-        width: 40px;
-        position: relative;
-        border-radius: 32px;
-        cursor: pointer;
-        border: 1px solid #e84e0e;
-        background: #fff;
-        margin-right: 16px;
-        &:before {
-          content: "";
-          position: absolute;
-          display: block;
-          height: 24px;
-          width: 24px;
-          top: 0;
-          left: 0;
-          border-radius: 50%;
-          transition: 0.2s;
-        }
-        &:after {
-          content: "";
-          position: absolute;
-          display: block;
-          height: 16px;
-          width: 16px;
-          top: calc((100% - 16px) / 2);
-          left: 3px;
-          border-radius: 32px;
-          background: #e84e0e;
-          transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
-        }
-        span {
-          white-space: nowrap;
-          height: 24px;
-          line-height: 24px;
-          margin-left: 40px;
-          padding-left: 16px;
-        }
-      }
-      &:checked {
-        & + label:before {
-          background: white;
-        }
-        & + label:after {
-          left: 20px;
-        }
-      }
-    }
-  }
 }
 </style>
