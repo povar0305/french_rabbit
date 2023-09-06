@@ -1,20 +1,44 @@
 <template>
-    <div class="switch">
-            <input
-              type="checkbox"
-              name="toggle"
-              class="switch__input"
-              id="toggle-1"
-            />
-            <label for="toggle-1">
-              <span>Кухня под ключ</span>
-            </label>
-          </div>
+  <div class="switch">
+    <input
+      type="checkbox"
+      name="toggle"
+      class="switch__input"
+      :id="this.switch.name"
+      v-model="status"
+      :value="this.switch.name"
+      @change="changeCheckbox"
+    />
+    <label :for="this.switch.name">
+      <span>Кухня под ключ</span>
+    </label>
+  </div>
 </template>
 <script>
 export default {
   name: "v-switch",
-  components: {},
+  props: {
+    switch: {
+      title: String,
+      status: Boolean,
+      name: String,
+    },
+  },
+  data() {
+    return {
+      status: Boolean,
+    };
+  },
+  methods: {
+    changeCheckbox() {
+      this.$emit("changeCheckbox", {
+        status: this.status,
+      });
+    },
+  },
+  mounted(){
+    this.status=this.switch.status
+  }
 };
 </script>
 <style lang="scss" scouped>

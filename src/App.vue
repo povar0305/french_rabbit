@@ -4,7 +4,10 @@
       <vLine></vLine>
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
-          <vSwitch></vSwitch>
+          <vSwitch
+            :switch="this.switch"
+            @changeCheckbox="changeCheckbox"
+          ></vSwitch>
           <a href="#" class="kitchen__link">
             Подробнее
             <svg
@@ -40,13 +43,30 @@
 </template>
 
 <script>
-import VChip from './components/v-chip'
+import VChip from "./components/v-chip";
 import vLine from "./components/v-line.vue";
 import vSwitch from "./components/v-switch.vue";
 export default {
   name: "App",
   components: {
-    VChip, vSwitch, vLine },
+    VChip,
+    vSwitch,
+    vLine,
+  },
+  data: function () {
+    return {
+      switch: {
+        title: "Кухня под ключ",
+        name: "kitchenForKey",
+        status: false,
+      },
+    };
+  },
+  methods: {
+    changeCheckbox(data) {
+      console.log(data);
+    },
+  },
 };
 </script>
 
@@ -85,7 +105,6 @@ export default {
         margin: 0;
       }
     }
-    
   }
   &__link {
     font-size: 12px;
