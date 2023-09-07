@@ -58,7 +58,7 @@ export default {
       switch: {
         title: "Кухня под ключ",
         name: "kitchenForKey",
-        status: false,
+        status: true,
       },
     };
   },

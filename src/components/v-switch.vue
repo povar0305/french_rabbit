@@ -9,7 +9,7 @@
         :value="this.switch.name"
         @change="changeCheckbox"
       />
-      <span>Кухня под ключ</span>
+      <span>{{ this.switch.title }}</span>
     </label>
   </div>
 </template>
