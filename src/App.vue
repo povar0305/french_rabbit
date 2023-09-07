@@ -6,13 +6,14 @@
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--switch">
             <label>
-              <VSwitch :switch_status="this.switch" @changeCheckbox="changeCheckbox">
+              <VSwitch v-model="this.switch" @change="changeCheckbox">
               </VSwitch>
-              <span>Кухня под ключ</span>
+              <span>Кухня под ключ  </span>
             </label>
           </div>
           <a href="#" class="kitchen__link">
-            Подробнее
+            {{ this.switch }}
+            Подробнее 
             <svg
               width="6"
               height="10"
@@ -60,12 +61,12 @@ export default {
   },
   data: function () {
     return {
-      switch: true,
+      switch: false,
     };
   },
   methods: {
     changeCheckbox(data) {
-      console.log(data);
+      this.switch=data;
     },
   },
 };
