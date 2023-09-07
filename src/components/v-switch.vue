@@ -1,25 +1,24 @@
 <template>
-  <div>
-     <input type="checkbox" :checked="status" v-model="status"  :change="$emit('change', status)"
-      />
-  </div>
- 
+      <input type="checkbox"  v-bind:value="value" 
+      v-on:change="$emit('input', $event.target.value)" />
 </template>
 <script>
 export default {
   name: "v-switch",
-  props:{
+  props: {
     value:Boolean
   },
   data(){
     return{
-      status:this.value
+     // status:this.value
     }
-  }
+  },mounted() {
+    console.log(this.value)
+  },
   
 };
 </script>
-<style scouped>
+<style scoped lang="scss">
 input {
   display: none;
 }
