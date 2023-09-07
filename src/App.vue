@@ -6,12 +6,12 @@
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--switch">
             <label>
-              <vSwitch v-model="checked"></vSwitch>
-              <span>Кухня под ключ {{ checked }} </span>
+              <vSwitch v-model="switch_status"></vSwitch>
+              <span>Кухня под ключ  </span>
             </label>
           </div>
           <a href="#" class="kitchen__link">
-      <!-- <input type="checkbox" v-model="checked" />    -->
+      <!-- <input type="checkbox" v-model="switch_status" />    -->
             Подробнее 
             <svg
               width="6"
@@ -60,7 +60,7 @@ export default {
   },
   data: function () {
     return {
-      checked:true
+      switch_status:true
     };
   },
   methods: {
