@@ -12,7 +12,6 @@
             </label>
           </div>
           <a href="#" class="kitchen__link">
-            {{ this.switch }}
             Подробнее 
             <svg
               width="6"

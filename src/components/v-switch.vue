@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{this.value }}{{ this.status }}
      <input type="checkbox" :checked="status" v-model="status"  :change="$emit('change', status)"
       />
   </div>
