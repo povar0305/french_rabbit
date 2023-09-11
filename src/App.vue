@@ -9,10 +9,9 @@
                 v-bind:value="switch_status"
                 @change="switch_status = $event"
               >
-              <span>Кухня под ключ</span>
+              <span>Кухня под ключ </span>
             </vSwitch>
           </div>
-          
           <a href="#" class="kitchen__link">
             <!-- <input type="checkbox" v-model="switch_status" />    -->
             Подробнее

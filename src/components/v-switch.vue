@@ -1,6 +1,6 @@
 <template>
   <label>
-    <input type="checkbox" :checked="value" v-on:change="updateValue" />
+    <input type="checkbox" :checked="value" v-on:change="$emit('change', $event.target.checked)" />
     <slot></slot>
   </label>
 </template>
@@ -9,15 +9,6 @@ export default {
   name: "v-switch",
   props: {
     value: Boolean,
-  },
-  data() {
-    return {};
-  },
-  mounted() {},
-  methods: {
-    updateValue(event) {
-      this.$emit("change", event.target.checked);
-    },
   },
 };
 </script>
