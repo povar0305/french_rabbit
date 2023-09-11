@@ -6,13 +6,16 @@
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--switch">
             <label>
-              <vSwitch v-model="switch_status"></vSwitch>
-              <span>Кухня под ключ  </span>
+              <vSwitch
+                v-bind:value="switch_status"
+                @change="switch_status = $event"
+              ></vSwitch>
+              <span>Кухня под ключ </span>
             </label>
           </div>
           <a href="#" class="kitchen__link">
-      <!-- <input type="checkbox" v-model="switch_status" />    -->
-            Подробнее 
+            <!-- <input type="checkbox" v-model="switch_status" />    -->
+            Подробнее
             <svg
               width="6"
               height="10"
@@ -60,13 +63,11 @@ export default {
   },
   data: function () {
     return {
-      switch_status:true
+      switch_status: false,
     };
   },
   methods: {
-    input(data){
-      console.log(data)
-    }
+    
   },
 };
 </script>
