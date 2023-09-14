@@ -5,15 +5,14 @@
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--switch">
-              <vSwitch
-                v-bind:value="switch_status"
-                @change="switch_status = $event"
-              >
+            <vSwitch
+              v-bind:value="switch_status"
+              @change="switch_status = $event"
+            >
               <span>Кухня под ключ </span>
             </vSwitch>
           </div>
           <a href="#" class="kitchen__link">
-            <!-- <input type="checkbox" v-model="switch_status" />    -->
             Подробнее
             <svg
               width="6"
@@ -33,12 +32,22 @@
         </div>
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
-            <p>Тип кухни</p>
-            <VChip></VChip>
+            <VChip
+              :data="chip_kitchen"
+              v-model="result_kitchen"
+              @change="result_kitchen = $event"
+            >
+              <p>Тип кухни</p>
+            </VChip>
           </div>
           <div class="kitchen__inner--col-1">
-            <p>Цвет отделки</p>
-            <VChip></VChip>
+            <VChip
+              :data="chip_color"
+              v-model="result_colors"
+              @change="result_colors = $event"
+            >
+              <p>Цвет отделки</p>
+            </VChip>
           </div>
         </div>
       </div>
@@ -63,11 +72,21 @@ export default {
   data: function () {
     return {
       switch_status: false,
+      chip_kitchen: {
+        type: "types",
+        name_group: "types1",
+        data: ["Стандарт", "Плюс"],
+      },
+      chip_color: {
+        type: "colors",
+        name_group: "colors1",
+        data: ["#D3C285", "#CBB697", "#DEE2E2", "#DEDEDE"],
+      },
+      result_kitchen: null,
+      result_colors: null,
     };
   },
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
