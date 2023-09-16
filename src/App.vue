@@ -73,7 +73,7 @@ export default {
     return {
       switch_status: false,
       chip_kitchen: {
-        type: "types",
+        type: "text",
         name_group: "types1",
         data: ["Стандарт", "Плюс"],
       },

@@ -9,7 +9,7 @@
           :value="element"
           v-on:change="$emit('change', $event.target.value)"
         />
-        <span v-if="data.type == 'types'" class="text">{{ element }}</span>
+        <span v-if="data.type == 'texts'" class="text">{{ element }}</span>
         <span
           v-if="data.type == 'colors'"
           class="circle"
@@ -22,7 +22,13 @@
 <script>
 export default {
   name: "v-line",
-  props: ["data"],
+  props: {
+    data: {
+      type: String, //Тип выбор цвета colors или текст texts
+      name_group: String, // Название группы радио кнопок
+      data: Array, //данные для вывода радио кнопок
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -47,7 +53,7 @@ export default {
     display: flex;
     flex-direction: row;
   }
-  &.types label {
+  &.texts label {
     width: auto;
     border-radius: 32px;
     padding: 8px 24px;
