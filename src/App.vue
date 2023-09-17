@@ -1,10 +1,17 @@
 <template>
   <div id="app">
     <div class="kitchen">
-    <vLine></vLine>
+      <vLine></vLine>
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
-          <vSwitch></vSwitch>
+          <div class="kitchen__inner--switch">
+            <vSwitch
+              v-bind:value="switch_status"
+              @change="switch_status = $event"
+            >
+              <span>Кухня под ключ </span>
+            </vSwitch>
+          </div>
           <a href="#" class="kitchen__link">
             Подробнее
             <svg
@@ -25,44 +32,48 @@
         </div>
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
-            <p>Тип кухни</p>
-            <div class="kitchen__inner--chips">
-              <div class="kitchen__inner--chip">
-                <input
-                  type="radio"
-                  value="huey"
-                  checked
-                  id="standart"
-                  name="selectedTypeKitchen"
-                />
-                <label for="standart">Cтандарт</label>
-              </div>
-              <div class="kitchen__inner--chip">
-                <input
-                  type="radio"
-                  value="huey"
-                  name="selectedTypeKitchen"
-                  id="plus"
-                />
-                <label for="plus">Плюс</label>
-              </div>
-            </div>
+            <VChip
+              :data="chip_kitchen"
+              v-model="result_kitchen"
+              @change="result_kitchen = $event"
+            >
+              <p>Тип кухни</p>
+            </VChip>
+          </div>
+          <div class="kitchen__inner--col-1">
+            <VChip
+              :data="chip_color"
+              v-model="result_colors"
+              @change="result_colors = $event"
+            >
+              <p>Цвет отделки</p>
+            </VChip>
           </div>
         </div>
       </div>
-    <vLine></vLine>
-
+      <vLine></vLine>
     </div>
-
   </div>
 </template>
 
 <script>
+import VSwitch from "./components/v-switch";
 import vLine from "./components/v-line.vue";
 import vSwitch from "./components/v-switch.vue";
 export default {
   name: "App",
-  components: { vSwitch, vLine },
+  components: {
+    VSwitch,
+    vSwitch,
+    vLine,
+  },
+  data: function () {
+    return {
+      switch_status: false,
+     
+    };
+  },
+  methods: {},
 };
 </script>
 
@@ -101,30 +112,9 @@ export default {
         margin: 0;
       }
     }
-    &--chips {
+    &--switch {
       display: flex;
-    }
-    &--chip label {
-      width: auto;
-      border-radius: 32px;
-      padding: 8px 24px;
-      margin-right: 8px;
-      background-color: #f2f2f2;
-      text-transform: uppercase;
-      font-size: 12px;
-      cursor: pointer;
-      transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
-      border: 1px solid transparent;
-      letter-spacing: 1.2;
-    }
-    & input {
-      opacity: 0;
-      position: absolute;
-      left: -9999px;
-      &:checked + label {
-        border: 1px solid #e84e0e;
-        background-color: #fff;
-      }
+      align-items: center;
     }
   }
   &__link {
