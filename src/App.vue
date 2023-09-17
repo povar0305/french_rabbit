@@ -58,32 +58,19 @@
 
 <script>
 import VSwitch from "./components/v-switch";
-import VChip from "./components/v-chip";
 import vLine from "./components/v-line.vue";
 import vSwitch from "./components/v-switch.vue";
 export default {
   name: "App",
   components: {
     VSwitch,
-    VChip,
     vSwitch,
     vLine,
   },
   data: function () {
     return {
       switch_status: false,
-      chip_kitchen: {
-        type: "text",
-        name_group: "types1",
-        data: ["Стандарт", "Плюс"],
-      },
-      chip_color: {
-        type: "colors",
-        name_group: "colors1",
-        data: ["#D3C285", "#CBB697", "#DEE2E2", "#DEDEDE"],
-      },
-      result_kitchen: null,
-      result_colors: null,
+     
     };
   },
   methods: {},
