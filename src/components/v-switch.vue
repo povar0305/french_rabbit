@@ -6,7 +6,6 @@
 </template>
 <script>
 export default {
-  name: "v-switch",
   props: {
     value: Boolean,
   },
