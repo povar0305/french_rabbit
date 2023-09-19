@@ -5,7 +5,7 @@
       <label
         v-for="element in data.datas"
         :key="element.text"
-        :class="[{ circle: element.hasOwnProperty('color')  }, text]"
+        :class="[{ circle: element.hasOwnProperty('color')  }, '']"
         :style="element.hasOwnProperty('color')? { background: element.color } : ''"
         ><input
           type="radio"
@@ -30,6 +30,10 @@ export default {
       datas: Array, //данные для вывода радио кнопок
     },
   },
+  data() {
+  return {
+  };
+}
 };
 </script>
 <style lang="scss" scoped>
