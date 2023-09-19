@@ -32,22 +32,20 @@
         </div>
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
-            <VChip
+            <vChip
               :data="chip_kitchen"
-              v-model="result_kitchen"
               @change="result_kitchen = $event"
             >
-              <p>Тип кухни</p>
-            </VChip>
+              <p>Тип кухни {{ result_kitchen }}</p>
+            </vChip>
           </div>
           <div class="kitchen__inner--col-1">
-            <VChip
+            <vChip
               :data="chip_color"
-              v-model="result_colors"
               @change="result_colors = $event"
             >
-              <p>Цвет отделки</p>
-            </VChip>
+              <p>Цвет отделки {{ result_colors }}</p>
+            </vChip>
           </div>
         </div>
       </div>
@@ -57,13 +55,13 @@
 </template>
 
 <script>
-import VSwitch from "./components/v-switch";
-import VChip from "./components/v-chip";
+import vSwitch from "./components/v-switch.vue";
+import vChip from "./components/v-chip.vue";
 import vLine from "./components/v-line.vue";
 export default {
   name: "App",
   components: {
-    VChip,
+    vChip,
     vSwitch,
     vLine,
   },
@@ -71,14 +69,21 @@ export default {
     return {
       switch_status: false,
       chip_kitchen: {
-        type: "types",
         name_group: "types1",
-        data: ["Стандарт", "Плюс"],
+        datas: [
+          { text: "Стандарт", value: "standart" },
+          { text: "Плюс", value: "plus" },
+        ],
       },
       chip_color: {
-        type: "colors",
         name_group: "colors1",
-        data: ["#D3C285", "#CBB697", "#DEE2E2", "#DEDEDE"],
+        datas: [
+          { text: "#D3C285", value: "D3C285" ,color:"#D3C285"},
+          { text: "#CBB697", value: "CBB697" ,color:"#CBB697"},
+          { text: "#DEE2E2", value: "DEE2E2" ,color:"#DEE2E2"},
+          { text: "#DEDEDE", value: "DEDEDE" ,color:"#DEDEDE"},
+          { text: "Без цвета", value: "Без цвета" },
+        ],
       },
       result_kitchen: null,
       result_colors: null,
