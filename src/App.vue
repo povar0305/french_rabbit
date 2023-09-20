@@ -32,19 +32,13 @@
         </div>
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
-            <vChip
-              :data="chip_kitchen"
-              @change="result_kitchen = $event"
-            >
-              <p>Тип кухни {{ result_kitchen }}</p>
+            <vChip :data="chip_kitchen" @change="result_kitchen = $event" :result="result_kitchen">
+              <p>Тип кухни</p>
             </vChip>
           </div>
           <div class="kitchen__inner--col-1">
-            <vChip
-              :data="chip_color"
-              @change="result_colors = $event"
-            >
-              <p>Цвет отделки {{ result_colors }}</p>
+            <vChip :data="chip_color" @change="result_colors = $event" :result="result_colors">
+              <p>Цвет отделки</p>
             </vChip>
           </div>
         </div>
@@ -68,25 +62,20 @@ export default {
   data: function () {
     return {
       switch_status: false,
-      chip_kitchen: {
-        name_group: "types1",
-        datas: [
-          { text: "Стандарт", value: "standart" },
-          { text: "Плюс", value: "plus" },
-        ],
-      },
-      chip_color: {
-        name_group: "colors1",
-        datas: [
-          { text: "#D3C285", value: "D3C285" ,color:"#D3C285"},
-          { text: "#CBB697", value: "CBB697" ,color:"#CBB697"},
-          { text: "#DEE2E2", value: "DEE2E2" ,color:"#DEE2E2"},
-          { text: "#DEDEDE", value: "DEDEDE" ,color:"#DEDEDE"},
-          { text: "Без цвета", value: "Без цвета" },
-        ],
-      },
-      result_kitchen: null,
-      result_colors: null,
+      chip_kitchen: [
+        { text: "Стандарт", value: "standart" },
+        { text: "Плюс", value: "plus" },
+      ],
+
+      chip_color: [
+        { text: "#D3C285", value: "D3C285", color: "#D3C285" },
+        { text: "#CBB697", value: "CBB697", color: "#CBB697" },
+        { text: "#DEE2E2", value: "DEE2E2", color: "#DEE2E2" },
+        { text: "#DEDEDE", value: "DEDEDE", color: "#DEDEDE" },
+        { text: "Без цвета", value: "Без цвета" },
+      ],
+      result_kitchen: '',
+      result_colors: 'CBB697',
     };
   },
   methods: {},

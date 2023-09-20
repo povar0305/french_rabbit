@@ -3,17 +3,19 @@
     <slot></slot>
     <div class="chip">
       <label
-        v-for="element in data.datas"
+        v-for="element in data"
         :key="element.text"
-        :class="[{ circle: element.hasOwnProperty('color')  }, '']"
-        :style="element.hasOwnProperty('color')? { background: element.color } : ''"
+        :class="[{ circle: element.hasOwnProperty('color') }, '']"
+        :style="
+          element.hasOwnProperty('color') ? { background: element.color } : ''
+        "
         ><input
           type="radio"
-          :name="data.name_group"
           :value="element.value"
           v-on:change="$emit('change', element.value)"
+          :checked="result==element.value"
         />
-        <span v-if="!element.hasOwnProperty('color') ">
+        <span v-if="!element.hasOwnProperty('color')">
           {{ element.text }}
         </span>
       </label>
@@ -24,16 +26,16 @@
 export default {
   name: "v-chip",
   props: {
+    result:String,
     data: {
-      type_group: String, //Тип выбор цвета colors или текст texts
-      name_group: String, // Название группы радио кнопок
-      datas: Array, //данные для вывода радио кнопок
+      color: String,
+      text: String,
+      value: String,
     },
   },
   data() {
-  return {
-  };
-}
+    return {};
+  },
 };
 </script>
 <style lang="scss" scoped>
