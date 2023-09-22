@@ -32,13 +32,13 @@
         </div>
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
-            <vChip :data="chip_kitchen" v-model="result_kitchen" >
+            <vChip :data="chip_kitchen" v-model="result_kitchen">
               <p>Тип кухни</p>
             </vChip>
           </div>
           <div class="kitchen__inner--col-1">
-            <vChip :data="chip_color" v-model="result_colors" >
-              <p>Цвет отделки {{ result_colors }}</p>
+            <vChip :data="chip_color" v-model="result_colors">
+              <p>Цвет отделки</p>
             </vChip>
           </div>
         </div>
@@ -74,8 +74,8 @@ export default {
         { text: "#DEDEDE", value: "DEDEDE", color: "#DEDEDE" },
         { text: "Без цвета", value: "Без цвета" },
       ],
-      result_kitchen: '',
-      result_colors: 'CBB697',
+      result_kitchen: "",
+      result_colors: "CBB697",
     };
   },
   methods: {},
