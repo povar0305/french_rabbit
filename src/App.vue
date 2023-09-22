@@ -32,13 +32,13 @@
         </div>
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
-            <vChip :data="chip_kitchen" @change="result_kitchen = $event" :result="result_kitchen">
+            <vChip :data="chip_kitchen" v-model="result_kitchen" >
               <p>Тип кухни</p>
             </vChip>
           </div>
           <div class="kitchen__inner--col-1">
-            <vChip :data="chip_color" @change="result_colors = $event" :result="result_colors">
-              <p>Цвет отделки</p>
+            <vChip :data="chip_color" v-model="result_colors" >
+              <p>Цвет отделки {{ result_colors }}</p>
             </vChip>
           </div>
         </div>

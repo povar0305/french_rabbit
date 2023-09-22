@@ -12,8 +12,8 @@
         ><input
           type="radio"
           :value="element.value"
-          v-on:change="$emit('change', element.value)"
-          :checked="result==element.value"
+          v-on:input="$emit('input', element.value)"
+          v-model="value"
         />
         <span v-if="!element.hasOwnProperty('color')">
           {{ element.text }}
@@ -26,7 +26,7 @@
 export default {
   name: "v-chip",
   props: {
-    result:String,
+    value:String,
     data: {
       color: String,
       text: String,
