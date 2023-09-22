@@ -4,7 +4,7 @@
     <div class="chip">
       <label
         v-for="element in data"
-        :key="element.text"
+        :key="element.value"
         :class="[{ circle: element.hasOwnProperty('color') }, '']"
         :style="
           element.hasOwnProperty('color') ? { background: element.color } : ''
