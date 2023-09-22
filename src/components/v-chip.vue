@@ -5,17 +5,15 @@
       <label
         v-for="element in data"
         :key="element.value"
-        :class="[{ circle: element.hasOwnProperty('color') }, '']"
-        :style="
-          element.hasOwnProperty('color') ? { background: element.color } : ''
-        "
+        :class="[{ circle: 'color' in element }, '']"
+        :style="'color' in element ? { background: element.color } : ''"
         ><input
           type="radio"
           :value="element.value"
           v-on:input="$emit('input', element.value)"
           v-model="value"
         />
-        <span v-if="!element.hasOwnProperty('color')">
+        <span v-if="!('color' in element)">
           {{ element.text }}
         </span>
       </label>
@@ -26,7 +24,7 @@
 export default {
   name: "v-chip",
   props: {
-    value:String,
+    value: String,
     data: {
       color: String,
       text: String,
