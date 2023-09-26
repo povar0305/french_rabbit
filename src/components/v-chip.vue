@@ -24,16 +24,12 @@
 export default {
   name: "v-chip",
   props: {
-    value:String,
-    data: {
-      color: String,
-      text: String,
-      value: String,
-    },
+    value: String,
+    data:  Array,
   },
- 
 };
 </script>
+
 <style lang="scss" scoped>
 .chips {
   display: flex;
