@@ -24,8 +24,8 @@
 
 <script setup lang="ts">
 
-const {value, data} = defineProps({value: String, data: Array});
-
+// const {value, data} = defineProps({value: String, data: Array});
+const {value, data} = defineProps<{value: String, data: Array<{value:String, name:String, color?:String}>()
 </script>
 
 <style lang="scss" scoped>
