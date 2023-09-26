@@ -1,3 +1,5 @@
+Закрытый проект.
+
 # french_rabbit
 
 ## Project setup
