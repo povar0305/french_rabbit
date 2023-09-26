@@ -32,22 +32,14 @@
         </div>
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
-            <VChip
-              :data="chip_kitchen"
-              v-model="result_kitchen"
-              @change="result_kitchen = $event"
-            >
+            <vChip :data="chip_kitchen" v-model="result_kitchen">
               <p>Тип кухни</p>
-            </VChip>
+            </vChip>
           </div>
           <div class="kitchen__inner--col-1">
-            <VChip
-              :data="chip_color"
-              v-model="result_colors"
-              @change="result_colors = $event"
-            >
+            <vChip :data="chip_color" v-model="result_colors">
               <p>Цвет отделки</p>
-            </VChip>
+            </vChip>
           </div>
         </div>
       </div>
@@ -57,20 +49,33 @@
 </template>
 
 <script>
-import VSwitch from "./components/v-switch";
-import vLine from "./components/v-line.vue";
 import vSwitch from "./components/v-switch.vue";
+import vChip from "./components/v-chip.vue";
+import vLine from "./components/v-line.vue";
 export default {
   name: "App",
   components: {
-    VSwitch,
+    vChip,
     vSwitch,
     vLine,
   },
   data: function () {
     return {
       switch_status: false,
-     
+      chip_kitchen: [
+        { text: "Стандарт", value: "standart" },
+        { text: "Плюс", value: "plus" },
+      ],
+
+      chip_color: [
+        { text: "#D3C285", value: "D3C285", color: "#D3C285" },
+        { text: "#CBB697", value: "CBB697", color: "#CBB697" },
+        { text: "#DEE2E2", value: "DEE2E2", color: "#DEE2E2" },
+        { text: "#DEDEDE", value: "DEDEDE", color: "#DEDEDE" },
+        { text: "Без цвета", value: "Без цвета" },
+      ],
+      result_kitchen: "",
+      result_colors: "CBB697",
     };
   },
   methods: {},
