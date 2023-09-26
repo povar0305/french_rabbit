@@ -20,14 +20,12 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  name: "v-chip",
-  props: {
-    value: String,
-    data:  Array,
-  },
-};
+
+
+<script setup lang="ts">
+
+const {value, data} = defineProps({value: String, data: Array});
+
 </script>
 
 <style lang="scss" scoped>
