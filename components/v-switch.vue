@@ -1,18 +1,21 @@
 <template>
   <label>
-    <input type="checkbox" :checked="value" v-on:change="$emit('change', $event.target.checked)" />
-    <slot></slot>
+    <input
+      type="checkbox"
+      :checked="modelValue"
+      @change="$emit('update:modelValue', $event.target.checked)"
+    />
   </label>
+  <slot></slot>
 </template>
-<script>
+  <script>
 export default {
   name: "v-switch",
-  props: {
-    value: Boolean,
-  },
+  props: { modelValue: Boolean }
 };
 </script>
-<style scoped lang="scss">
+
+  <style scoped lang="scss">
 input {
   display: none;
 }

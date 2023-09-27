@@ -3,15 +3,15 @@
     <slot></slot>
     <div class="chip">
       <label
-        v-for="element in data"
+        v-for="element in props.data"
         :key="element.value"
         :class="[{ circle: 'color' in element }, '']"
         :style="'color' in element ? { background: element.color } : ''"
         ><input
           type="radio"
           :value="element.value"
-          v-on:input="$emit('input', element.value)"
-          v-model="value"
+          :checked="props.modelValue == element.value"
+          @change="$emit('update:modelValue', $event.target.value)"
         />
         <span v-if="!('color' in element)">
           {{ element.text }}
@@ -20,15 +20,22 @@
     </div>
   </div>
 </template>
-
-
-<script setup lang="ts">
-
-// const {value, data} = defineProps({value: String, data: Array});
-const {value, data} = defineProps<{value: String, data: Array<{value:String, name:String, color?:String}>()
+  
+  
+  <script setup lang="ts">
+interface settingProps {
+  modelValue: string;
+  data: {
+    value: string;
+    text: string;
+    color?: string;
+  }[];
+}
+const props = defineProps<settingProps>();
 </script>
 
-<style lang="scss" scoped>
+
+  <style lang="scss" scoped>
 .chips {
   display: flex;
   flex-direction: column;

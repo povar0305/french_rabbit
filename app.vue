@@ -5,11 +5,8 @@
       <div class="kitchen__inner">
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--switch">
-            <vSwitch
-              v-bind:value="switch_status"
-              @change="switch_status = $event"
-            >
-              <span>Кухня под ключ </span>
+            <vSwitch v-model="switch_status">
+              <span>Кухня под ключ</span>
             </vSwitch>
           </div>
           <a href="#" class="kitchen__link">
@@ -33,12 +30,12 @@
         <div class="kitchen__inner--row">
           <div class="kitchen__inner--col-1">
             <vChip :data="chip_kitchen" v-model="result_kitchen">
-              <p>Тип кухни</p>
+              <p>Тип кухни </p>
             </vChip>
           </div>
           <div class="kitchen__inner--col-1">
             <vChip :data="chip_color" v-model="result_colors">
-              <p>Цвет отделки</p>
+              <p>Цвет отделки </p>
             </vChip>
           </div>
         </div>
@@ -50,14 +47,14 @@
 
 <script>
 import vSwitch from "./components/v-switch.vue";
-import vChip from "./components/v-chip.vue";
 import vLine from "./components/v-line.vue";
+import vChip from "./components/v-chip.vue";
 export default {
   name: "App",
   components: {
-    vChip,
     vSwitch,
     vLine,
+    vChip,
   },
   data: function () {
     return {
@@ -74,18 +71,17 @@ export default {
         { text: "#DEDEDE", value: "DEDEDE", color: "#DEDEDE" },
         { text: "Без цвета", value: "Без цвета" },
       ],
-      result_kitchen: "",
+      result_kitchen: "plus",
       result_colors: "CBB697",
     };
   },
-  methods: {},
 };
 </script>
 
 <style lang="scss">
 @font-face {
   font-family: "Futura Futuris Light";
-  src: url("./assets/FuturaFuturisC.ttf") format("truetype");
+  src: url("/FuturaFuturisC.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
