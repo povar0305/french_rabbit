@@ -1,19 +1,12 @@
-# french_rabbit
+# switch, chips 
+Два компонента.
 
-## Project setup
-```
-npm install
-```
+1. Switch - переключатель, получает свой статус, а так же подпись (через `<slot></slot>`).
+2. Chips - выборка элемента из списка. На вход получает массив из объектов, если у объекта есть свойство **color**, то chip просто будет цветом. Плюс получает подпись (через `<slot></slot>`).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Все компоненты работаю на v-model. Разработано для компании **franch rabbit**. 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Использовала nuxt, vue3, ts.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+![image](https://github.com/povar0305/french_rabbit/assets/73982948/c2fdbcb9-f2e0-4598-ad47-b7b632945776)
